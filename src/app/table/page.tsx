@@ -1,7 +1,6 @@
-import { Paper, } from '@mui/material'
+import { Paper, Typography, } from '@mui/material'
 import React from 'react'
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import TableDisplay from '../../components/TableDisplay'
 
 export default function page() {
     const dataRows = [
@@ -16,8 +15,25 @@ export default function page() {
         { field:'status', headerName: 'Status', width: 150 }
     ];
     return (
-        <div className='p-4 mx-auto'>
-            <TableDisplay rows={dataRows} columns={dataColumns}/>
+        <div className='px-8 py-4 mx-auto'>
+            <h1 className='text-2xl py-3 font-bold'>DataGrid Display</h1>
+            <DataGrid
+                rows={dataRows}
+                columns={dataColumns}
+                pageSizeOptions={[5, 10, 25]}
+                checkboxSelection
+                disableRowSelectionOnClick
+                sx={{
+                    backgroundColor: 'white',
+                    textAlign: 'center',
+                    height: 400,
+                    width: '100%',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                    border: '1px solid #e2e8f0',
+                }}
+            />
         </div>
     )
 }
